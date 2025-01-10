@@ -7,14 +7,14 @@
 
 #### Proceso de Obtención de la API-Key
 - Primer per conseguir la key, hem anat a la web de la [AEMET](https://opendata.aemet.es/centrodedescargas/inicio). 
-- Despres, en l'apartat "Obtención de API Key", le damos a solicitar, ponemos el mail, comprovamos que no somos un robot i le damos a solicitar.
-- Entonces Recibes un mail con la confirmación y te daran la key
+- Després, a l'apartat "Obtenció de l'API Key", li donem a sol·licitar, posem el correu, comprovem que no som un robot i li donem a sol·licitar.
+- Aleshores, reps un correu amb la confirmació i et donaran la key.
 
 #### Proceso de la Obtención de los ficheros
-- Una vez tienes la API-Key, vuelves al inicio, y entras al apartado "Acceso General"
-- Dentro, pegas la API-Key en el apartado y en "Buscar" buscas por "Siglo".
-- Seleccionas un periodo "Diario" y le das a "Disponible en web"
-- Los filtros que hemos utilizado para encontrar el fichero, han sido los siguientes:
+- Un cop tens l'API-Key, tornes a l'inici, i entres a l'apartat "Accés General".
+- Dins, enganxes l'API-Key a l'apartat i a "Cercar" cerques per "Segle".
+- Selecciona un període "Diari" i li donem a "Disponible a la web".
+- Els filtres que hem utilitzat per trobar el fitxer han estat els següents:
 
   - Metodo: Regresión Rejilla
   - Modelo: MIROC5
@@ -22,7 +22,7 @@
   - Variable: Precipitación
   - Periodo: 2006-2100
     
-Una vez tengamos estos filtros seleccionados, le damos a buscar, y descargamos el unico archivo disponible.
+Un cop tinguem aquests filtres seleccionats, li donem a cercar, i descarreguem l'únic arxiu disponible.
 
 
 
