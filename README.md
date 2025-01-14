@@ -15,8 +15,11 @@
 
 #### Procés de l'Obtenció dels fitxers
 - Un cop tens l'API-Key, tornes a l'inici, i entres a l'apartat "Accés General".
+- ![](./assets/img/METEO1.png)
 - Dins, enganxes l'API-Key a l'apartat i a "Cercar" cerques per "Segle".
+- ![](./assets/img/METEO2.png)
 - Selecciona un període "Diari" i li donem a "Disponible a la web".
+- ![](./assets/img/METEO3.png)
 - Els filtres que hem utilitzat per trobar el fitxer han estat els següents:
 
   - **Metodo:** Regresión Rejilla
@@ -25,7 +28,7 @@
   - **Variable:** Precipitación
   - **Periodo:** 2006-2100
 
-
+![](./assets/img/METEO4.png)
 
 
 
