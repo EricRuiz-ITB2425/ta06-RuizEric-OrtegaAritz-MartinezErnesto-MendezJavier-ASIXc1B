@@ -23,8 +23,9 @@
   - **Periodo:** 2006-2100
 
 
-![](../img/APIKEY1.png)
-![](../img/APIKEY2.png)
+![](./assets/img/APIKEY1.png)
+![](./assets/img/APIKEY2.png)
+
 Un cop tinguem aquests filtres seleccionats, li donem a cercar, i descarreguem l'únic arxiu disponible.
 
 
