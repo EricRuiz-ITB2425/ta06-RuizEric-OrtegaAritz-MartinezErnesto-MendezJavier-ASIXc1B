@@ -6,9 +6,12 @@
 
 
 #### Procés d'Obtenció de l'API-Key
-- Primer per conseguir la key, hem anat a la web de la [AEMET](https://opendata.aemet.es/centrodedescargas/inicio). 
+- Primer per conseguir la key, hem anat a la web de la [AEMET](https://opendata.aemet.es/centrodedescargas/inicio).
+![](./assets/img/APIKEY1.png)
 - Després, a l'apartat "Obtenció de l'API Key", li donem a sol·licitar, posem el correu, comprovem que no som un robot i li donem a sol·licitar.
 - Aleshores, reps un correu amb la confirmació i et donaran la key.
+![](./assets/img/APIKEY2.png)
+
 
 #### Procés de l'Obtenció dels fitxers
 - Un cop tens l'API-Key, tornes a l'inici, i entres a l'apartat "Accés General".
@@ -23,8 +26,8 @@
   - **Periodo:** 2006-2100
 
 
-![](./assets/img/APIKEY1.png)
-![](./assets/img/APIKEY2.png)
+
+
 
 Un cop tinguem aquests filtres seleccionats, li donem a cercar, i descarreguem l'únic arxiu disponible.
 
