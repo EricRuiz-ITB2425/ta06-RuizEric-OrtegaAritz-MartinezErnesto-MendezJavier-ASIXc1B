@@ -39,7 +39,7 @@ Un cop tinguem aquests filtres seleccionats, li donem a cercar, i descarreguem l
 ## Tasca nº2 
 > _Resum de la tasca:_ Organitzar, Analitzar i Processar les dades per fer el codi.
 
-Per organitzar i separar els diferents passos (Revisar capçaleres, Verificar arxius, Netejar dades, documentar) hem creat diferents scripts. **(pas1.py | pas2.py | pas3.py | pas4.py)** per després ajuntar-ho tot en un mateix script (main.py):
+Per organitzar i separar els diferents passos (Revisar capçaleres, Verificar arxius, Netejar dades, documentar) hem creat diferents scripts. **(pas1.py | pas2.py | pas3.py | pas4.py)** per després ajuntar-ho tot en un mateix script **(main.py)**:
 
 ### PAS 1: Revisar capçaleres i altres dades. _(pas1.py)_
 
