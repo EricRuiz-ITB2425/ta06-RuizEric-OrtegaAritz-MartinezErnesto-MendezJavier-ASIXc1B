@@ -71,3 +71,4 @@ def main(directory):
 if __name__ == "__main__":
     # Reemplaza '../assets/dades' con la ruta real de la carpeta que contiene los archivos
     main('../../assets/dades')
+.
