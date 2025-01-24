@@ -42,7 +42,8 @@ Un cop tinguem aquests filtres seleccionats, li donem a cercar, i descarreguem l
 Per organitzar i separar els diferents passos (Revisar capçaleres, Verificar arxius, Netejar dades, documentar) hem creat diferents scripts. **(pas1.py | pas2.py | pas3.py | pas4.py)** per després ajuntar-ho tot en un mateix script **(main.py)**:
 
 ## L'script final es el seguent:
-![](./assets/img/SCRIPT1.png
+
+![](./assets/img/SCRIPT1.png)
 
 
 ## Tasca nº3 
