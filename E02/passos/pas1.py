@@ -32,7 +32,7 @@ def main(directory):
     current_time = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
 
     # Nombre del archivo de log
-    log_filename = f"logs_{current_time}.log"
+    log_filename = f"revision_cabecera_{current_time}.log"
 
     # Ruta completa del archivo de log
     log_filepath = os.path.join(logs_dir, log_filename)

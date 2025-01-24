@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-def check_header(file_path):
+def check_header(file_path, log_file):
     try:
         with open(file_path, 'r') as file:
             lines = [file.readline().strip() for _ in range(2)]
@@ -17,10 +17,10 @@ def check_header(file_path):
             # Si ambas líneas son correctas
             return True, None, None
     except Exception as e:
-        print(f"Error leyendo el archivo {file_path}: {e}")
+        log_file.write(f"Error leyendo el archivo {file_path}: {e}\n")
         return False, None, None
 
-def process_file(file_path):
+def process_file(file_path, log_file):
     total_values = 0
     missing_values = 0
     lines_processed = 0
@@ -32,13 +32,26 @@ def process_file(file_path):
             file.readline()
             file.readline()
 
-            for line in file:
-                lines_processed += 1
+            for i, line in enumerate(file, start=3):  # Comenzar desde la línea 3
                 parts = line.strip().split()
-                if len(parts) < 3:
-                    continue  # Ignorar líneas mal formateadas
-                year = int(parts[1])  # El año está en la segunda columna
-                values = list(map(float, parts[3:]))  # Valores de precipitaciones
+
+                # Validar formato de línea
+                if len(parts) < 3 or len(parts) != 34:  # 1 archivo, 1 año, 1 mes, 31 valores
+                    log_file.write(f"{file_path}: Línea {i} mal formateada ({line.strip()})\n")
+                    continue
+
+                try:
+                    year = int(parts[1])  # El año está en la segunda columna
+                    values = list(map(float, parts[3:]))  # Valores de precipitaciones
+
+                    if len(values) != 31:
+                        log_file.write(f"{file_path}: Línea {i} con valores incompletos ({line.strip()})\n")
+                        continue
+
+                except ValueError as ve:
+                    log_file.write(f"{file_path}: Línea {i} no se pudo parsear ({ve})\n")
+                    continue
+
                 total_values += len(values)
                 missing_values += values.count(-999)
 
@@ -46,16 +59,18 @@ def process_file(file_path):
                 valid_values = [v for v in values if v != -999]
                 if year not in yearly_data:
                     yearly_data[year] = []
-                yearly_data[year].extend(valid_values)
+                yearly_data[year].append(line.strip())
+
+                lines_processed += 1
 
     except Exception as e:
-        print(f"Error procesando el archivo {file_path}: {e}")
+        log_file.write(f"Error procesando el archivo {file_path}: {e}\n")
 
     return total_values, missing_values, lines_processed, yearly_data
 
 def calculate_statistics(yearly_data):
-    yearly_precipitation = {year: sum(values) for year, values in yearly_data.items()}
-    yearly_average = {year: sum(values) / len(values) for year, values in yearly_data.items() if values}
+    yearly_precipitation = {year: sum(float(value.split()[3]) for value in lines) for year, lines in yearly_data.items()}
+    yearly_average = {year: sum(float(value.split()[3]) for value in lines) / len(lines) for year, lines in yearly_data.items() if lines}
     years = sorted(yearly_precipitation.keys())
 
     annual_variation = {}
@@ -81,7 +96,6 @@ def calculate_statistics(yearly_data):
 
 def main(directory):
     good_files_count = 0
-    bad_files = []
     total_files_processed = 0
     total_values_processed = 0
     total_missing_values = 0
@@ -92,84 +106,66 @@ def main(directory):
     logs_dir = os.path.join(directory, '../../E02/logs')
     os.makedirs(logs_dir, exist_ok=True)
 
-    # Obtener la fecha y hora actuales
-    current_time = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
-
     # Nombre del archivo de log
-    log_filename = f"logs_{current_time}.log"
+    log_filepath = os.path.join(logs_dir, "TA06.log")
+    results_filepath = os.path.join(logs_dir, "resultados.txt")
 
-    # Ruta completa del archivo de log
-    log_filepath = os.path.join(logs_dir, log_filename)
-
-    # Escribir los logs en el archivo de log
-    with open(log_filepath, 'w') as log_file:
+    with open(log_filepath, 'w') as log_file, open(results_filepath, 'w') as results_file:
         log_file.write("Proceso de revisión de archivos:\n")
-        log_file.write(f"Fecha y hora: {current_time}\n")
+        log_file.write(f"Fecha y hora: {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}\n")
 
         for filename in os.listdir(directory):
             file_path = os.path.join(directory, filename)
             if os.path.isfile(file_path):
                 log_file.write(f"Revisando archivo: {file_path}\n")
-                is_good, incorrect_line_number, incorrect_line = check_header(file_path)
+                is_good, incorrect_line_number, incorrect_line = check_header(file_path, log_file)
                 if is_good:
                     good_files_count += 1
                     total_files_processed += 1
                     log_file.write(f"{file_path}: Cabecera correcta\n")
 
-                    total_values, missing_values, lines_processed, yearly_data = process_file(file_path)
+                    total_values, missing_values, lines_processed, yearly_data = process_file(file_path, log_file)
                     total_values_processed += total_values
                     total_missing_values += missing_values
                     total_lines_processed += lines_processed
 
-                    for year, values in yearly_data.items():
+                    for year, lines in yearly_data.items():
+                        if len(lines) != 12:
+                            log_file.write(f"{file_path}: El año {year} no tiene 12 valores (tiene {len(lines)}).\n")
+
                         if year not in combined_yearly_data:
                             combined_yearly_data[year] = []
-                        combined_yearly_data[year].extend(values)
+                        combined_yearly_data[year].extend(lines)
                 else:
-                    bad_files.append((filename, incorrect_line_number, incorrect_line))
-                    log_file.write(f"{file_path}: Cabecera incorrecta\n")
+                    log_file.write(f"Archivo: {filename}\n")
+                    log_file.write(f"Linea {incorrect_line_number}: {incorrect_line}\n\n")
 
-    # Calcular estadísticas
-    stats = calculate_statistics(combined_yearly_data)
+        # Calcular estadísticas
+        stats = calculate_statistics(combined_yearly_data)
 
-    # Nombre del archivo de resultados
-    results_filename = f"resultados_revision_{current_time}.txt"
-
-    # Ruta completa del archivo de resultados
-    results_filepath = os.path.join(logs_dir, results_filename)
-
-    # Escribir los resultados en el archivo de resultados
-    with open(results_filepath, 'w') as result_file:
-        result_file.write(f"Total de archivos con cabeceras correctas: {good_files_count:,}\n\n")
-        result_file.write("Archivos nulos:\n")
-        for filename, incorrect_line_number, incorrect_line in bad_files:
-            result_file.write(f"Archivo: {filename}\n")
-            result_file.write(f"Linea {incorrect_line_number}: {incorrect_line}\n\n")
-
-        result_file.write("Resumen de procesamiento de datos:\n")
-        result_file.write(f"Total de valores procesados: {total_values_processed:,}\n")
-        result_file.write(f"Valores faltantes (-999): {total_missing_values:,}\n")
+        results_file.write(f"\nTotal de archivos con cabeceras correctas: {good_files_count:,}\n")
+        results_file.write(f"Archivos procesados: {total_files_processed:,}\n")
+        results_file.write(f"Lineas procesadas: {total_lines_processed:,}\n")
+        results_file.write(f"Total de valores procesados: {total_values_processed:,}\n")
+        results_file.write(f"Valores faltantes (-999): {total_missing_values:,}\n")
         if total_values_processed > 0:
             percentage_missing_values = (total_missing_values / total_values_processed) * 100
         else:
             percentage_missing_values = 0
-        result_file.write(f"Porcentaje de datos faltantes: {percentage_missing_values:.2f}%\n")
-        result_file.write(f"Archivos procesados: {total_files_processed:,}\n")
-        result_file.write(f"Lineas procesadas: {total_lines_processed:,}\n\n")
+        results_file.write(f"Porcentaje de datos faltantes: {percentage_missing_values:.2f}%\n")
 
-        result_file.write("Estadísticas de precipitaciones:\n")
-        result_file.write(f"Total de precipitaciones: {stats['total_precipitation']:,}\n")
-        result_file.write(f"Año más lluvioso: {stats['most_rainy_year']} ({stats['yearly_precipitation'][stats['most_rainy_year']]:,})\n")
-        result_file.write(f"Año más seco: {stats['driest_year']} ({stats['yearly_precipitation'][stats['driest_year']]:,})\n\n")
+        results_file.write(f"\nEstadísticas de precipitaciones:\n")
+        results_file.write(f"Total de precipitaciones: {stats['total_precipitation']:,}\n")
+        results_file.write(f"Año más lluvioso: {stats['most_rainy_year']} ({stats['yearly_precipitation'][stats['most_rainy_year']]:,})\n")
+        results_file.write(f"Año más seco: {stats['driest_year']} ({stats['yearly_precipitation'][stats['driest_year']]:,})\n")
 
-        result_file.write("Precipitaciones anuales promedio:\n")
+        results_file.write("\nPrecipitaciones anuales promedio:\n")
         for year, avg in sorted(stats['yearly_average'].items()):
-            result_file.write(f"{year}: {avg:.2f} L\n ")
+            results_file.write(f"{year}: {avg:.2f} L\n")
 
-        result_file.write("\nTasa de variación anual de precipitaciones:\n")
+        results_file.write("\nTasa de variación anual de precipitaciones:\n")
         for year, variation in sorted(stats['annual_variation'].items()):
-            result_file.write(f"{year}: {variation:.2f}%\n")
+            results_file.write(f"{year}: {variation:.2f}%\n")
 
 if __name__ == "__main__":
-    # Reemplaza '../assets/dades' con la ruta real de la carpeta que contiene los archivos
     main('../../assets/dades')
