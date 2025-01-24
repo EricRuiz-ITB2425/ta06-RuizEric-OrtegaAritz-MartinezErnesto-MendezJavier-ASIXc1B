@@ -41,13 +41,9 @@ Un cop tinguem aquests filtres seleccionats, li donem a cercar, i descarreguem l
 
 Per organitzar i separar els diferents passos (Revisar capçaleres, Verificar arxius, Netejar dades, documentar) hem creat diferents scripts. **(pas1.py | pas2.py | pas3.py | pas4.py)** per després ajuntar-ho tot en un mateix script **(main.py)**:
 
-### PAS 1: Revisar capçaleres i altres dades. _(pas1.py)_
+## L'script final es el seguent:
+![](./assets/img/SCRIPT1.png
 
-### PAS 2: Verificar els arxius _(pas2.py)_
-
-### PAS 3: Netejar les dades i control d'errors _(pas3.py)_
-
-### PAS 4: Documentació | Logging _(pas4.py)_
 
 ## Tasca nº3 
 > _Resum de la tasca:_ Generació de resultats (resums estadístics, gràfics i .CSV)
