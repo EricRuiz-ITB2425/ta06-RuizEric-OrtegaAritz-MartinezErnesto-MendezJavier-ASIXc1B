@@ -43,7 +43,18 @@ Per organitzar i separar els diferents passos (Revisar capçaleres, Verificar ar
 
 ## L'script final es el seguent:
 
-![](./assets/img/SCRIPT1.png)
+![](./assets/img/script1.png)
+
+Aquesta part del codi defineix una funció que verifica si un fitxer té almenys dues línies i que la primera línia segueixi un format específic. Si no compleix aquests requisits, torna un missatge d'error i registra el problema.
+
+
+![](./assets/img/script2.png)
+
+Aquesta altra part processa els fitxers un per un i llegeix el fitxer, valida el format de cada línia, analitza els valors d'any i precipitacions, i registra qualsevol error trobat. A més, duu un seguiment del nombre total de valors, valors faltants i línies processades.
+
+![](./assets/img/script3.png)
+
+La darrera part. Organitza les dades de precipitacions per any, analitza els valors i genera estadístiques, incloent-hi el seguiment de valors, línies i faltants.
 
 
 ## Tasca nº3 
