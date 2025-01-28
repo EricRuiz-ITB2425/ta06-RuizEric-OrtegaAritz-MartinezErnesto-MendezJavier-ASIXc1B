@@ -1,24 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos básicos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Precipitaciones</title>
+    <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="./css/styles.css">
-    
-    <title>Página Web TA06</title>
 </head>
 <body>
+    <!-- Encabezado de la página -->
     <header>
-        <nav>
-        </nav>
+        <h1>Análisis de Precipitaciones</h1>
+        <p class="subtitle">Procesamiento y Visualización de Datos Meteorológicos</p>
     </header>
+
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#estadisticas">Estadísticas</a></li>
+            <li><a href="#datos-anuales">Datos Anuales</a></li>
+            <li><a href="#variacion">Variación Anual</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
     <main>
-        <section>
-            <h1>Primer titulo de la página Web</h1>
-            <p>Texto predeterminado</p>
+        <section id="estadisticas">
+            <h2>Estadísticas Generales</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Archivos Procesados</h3>
+                    <div class="stat-value">16,059</div>
+                    <p class="stat-detail">Total de líneas: 18,307,252</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Valores Procesados</h3>
+                    <div class="stat-value">567,524,812</div>
+                    <p class="stat-detail">Valores faltantes: 1.88%</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Año Más Lluvioso</h3>
+                    <div class="stat-value">2030</div>
+                    <p class="stat-detail">4,512,436.0 L</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Año Más Seco</h3>
+                    <div class="stat-value">2075</div>
+                    <p class="stat-detail">754,488.0 L</p>
+                </div>
+            </div>
+            <div class="total-precipitation">
+                <h3>Total de Precipitaciones</h3>
+                <div class="stat-value">195,561,302.0 L</div>
+            </div>
         </section>
+
+        <section id="datos-anuales">
+            <h2>Precipitaciones Anuales Promedio</h2>
+            <div class="data-grid">
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Año</th>
+                                <th>Precipitación (L)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>2006</td><td>10.13</td></tr>
+                            <tr><td>2007</td><td>7.42</td></tr>
+                            <tr><td>2008</td><td>17.79</td></tr>
+                            <tr><td>2009</td><td>13.03</td></tr>
+                            <tr><td>2010</td><td>7.03</td></tr>
+                            <!-- Continuar con el resto de años hasta 2100 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="variacion">
+            <h2>Tasa de Variación Anual</h2>
+            <div class="data-grid">
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Año</th>
+                                <th>Variación (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>2007</td><td>-26.76</td></tr>
+                            <tr><td>2008</td><td>139.90</td></tr>
+                            <tr><td>2009</td><td>-26.75</td></tr>
+                            <tr><td>2010</td><td>-46.03</td></tr>
+                            <tr><td>2011</td><td>11.26</td></tr>
+                            <!-- Continuar con el resto de años hasta 2100 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>-+
     </main>
+
+    <!-- Pie de página -->
     <footer>
+        <p>&copy; 2025 Análisis de Precipitaciones. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

@@ -1,1 +1,245 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Variables globales */
+:root {
+    --primary-color: #333;
+    --secondary-color: #3498db;
+    --background-color: #f4f4f4;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.subtitle {
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+/* Estilos de la navegación */
+nav {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Estilos del contenido principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Estilos de las secciones */
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Estilos de la cuadrícula de estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Estilos del contenedor de datos */
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.yearly-averages,
+.variation-rates {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.data-content {
+    margin-top: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* Estilos de la sección de contacto */
+.contact-info {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 1rem;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Nuevos estilos para las tablas de datos */
+.data-grid {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Estilos para los detalles de estadísticas */
+.stat-detail {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.total-precipitation {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.total-precipitation .stat-value {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .data-grid {
+        margin: 1rem -1rem;
+        border-radius: 0;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
+}
