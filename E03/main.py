@@ -127,5 +127,5 @@ def main(directory):
             csv_writer.writerow([year, total_precip, avg_precip])
 
 if __name__ == "__main__":
-    main('../../assets/dades')
+    main('../assets/dades')
 #a
