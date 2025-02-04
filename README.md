@@ -68,5 +68,16 @@ aaaaa
 ## Tasca nº5 
 > _Resum de la tasca:_ Reflexió sobre el treball dels nostres companys
 
+Entre nosaltres hem omplert la taula de reflexio per separat, els resultats son els seguents:
 
-aaaaa
+### ARITZ:
+
+### ANDRES:
+
+### ERNESTO:
+
+### ERIC:
+
+
+
+
