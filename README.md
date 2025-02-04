@@ -78,6 +78,8 @@ Entre nosaltres hem omplert la taula de reflexio per separat, els resultats son 
 
 ### ERIC:
 
+![](./assets/img/TASCA5_ERIC.png)
+
 
 
 
