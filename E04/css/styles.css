@@ -243,3 +243,21 @@ tbody tr:hover {
         padding: 0.5rem;
     }
 }
+
+/* Estilos para el contenedor de la gráfica */
+.chart-container {
+    width: 100%;
+    height: 500px;
+    margin-top: 2rem;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+}
+
+/* Estilos responsivos para la gráfica */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 300px;
+    }
+}

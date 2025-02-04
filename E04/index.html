@@ -21,6 +21,7 @@
             <li><a href="#estadisticas">Estadísticas</a></li>
             <li><a href="#datos-anuales">Datos Anuales</a></li>
             <li><a href="#variacion">Variación Anual</a></li>
+            <li><a href="#grafica">Gráfica</a></li>
         </ul>
     </nav>
 
@@ -49,10 +50,6 @@
                     <div class="stat-value">2075</div>
                     <p class="stat-detail">754,488.0 L</p>
                 </div>
-            </div>
-            <div class="total-precipitation">
-                <h3>Total de Precipitaciones</h3>
-                <div class="stat-value">195,561,302.0 L</div>
             </div>
         </section>
 
@@ -102,12 +99,91 @@
                     </table>
                 </div>
             </div>
-        </section>-+
+        </section>
+
+        <!-- Nueva sección para la gráfica -->
+        <section id="grafica">
+            <h2>Gráfica de Precipitaciones</h2>
+            <div class="chart-container">
+                <canvas id="precipitationChart"></canvas>
+            </div>
+        </section>
     </main>
 
     <!-- Pie de página -->
     <footer>
         <p>&copy; 2025 Análisis de Precipitaciones. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script para la gráfica -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Datos del CSV
+        const data = [
+            { year: 2006, total: 81652279.0, average: 423.58 },
+            { year: 2007, total: 62275361.0, average: 323.06 },
+            { year: 2008, total: 60853163.0, average: 315.68 },
+            { year: 2009, total: 62067419.0, average: 321.98 },
+            { year: 2010, total: 48571392.0, average: 251.97 },
+            // ... Resto de los datos
+            { year: 2100, total: 60598786.0, average: 314.36 }
+        ];
+
+        // Configuración de la gráfica
+        const ctx = document.getElementById('precipitationChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.map(d => d.year),
+                datasets: [
+                    {
+                        label: 'Precipitación Total (L/m²)',
+                        data: data.map(d => d.total),
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                    },
+                    {
+                        label: 'Precipitación Promedio (L/m²)',
+                        data: data.map(d => d.average),
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Año'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Precipitación (L/m²)'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => {
+                                const label = context.dataset.label || '';
+                                const value = context.raw || 0;
+                                return `${label}: ${value.toFixed(2)} L/m²`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
