@@ -106,7 +106,11 @@ Entre nosaltres hem omplert la taula de reflexio per separat, els resultats son 
 
 ### ANDRES:
 
+![](./assets/img/TASCA5_JAVIER.png)
+
 ### ERNESTO:
+
+![](./assets/img/TASCA5_ERNESTO.png)
 
 ### ERIC:
 
