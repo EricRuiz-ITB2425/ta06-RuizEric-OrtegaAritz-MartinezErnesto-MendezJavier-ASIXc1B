@@ -96,7 +96,7 @@ L'script es el seguent:
 
 
 La pagina esta pujada al github i es pot accedir:
-[Pagina web]([url](https://ericruiz-itb2425.github.io/ta06-RuizEric-OrtegaAritz-MartinezErnesto-MendezJavier-ASIXc1B/E04/))
+[Pagina web](https://ericruiz-itb2425.github.io/ta06-RuizEric-OrtegaAritz-MartinezErnesto-MendezJavier-ASIXc1B/E04/)
 
 ## Tasca nº5 
 > _Resum de la tasca:_ Reflexió sobre el treball dels nostres companys
