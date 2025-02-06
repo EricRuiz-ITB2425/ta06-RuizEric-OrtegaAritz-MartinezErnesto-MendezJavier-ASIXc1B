@@ -62,7 +62,7 @@ La darrera part. Organitza les dades de precipitacions per any, analitza els val
 
 Per aquesta tasca, hem decidit dividirla entre la web i el codi, degut a que surt millor posar els grafics directament a la web en comptes de al codi per despres posar una foto. El resultat es el seguent:
 
-#### PART de main.py:
+### PART de main.py:
 
 [](./assets/img/TASCA3.1.png)
 Procesa els fitxers y suma els valors a les estadístiques generals
