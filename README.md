@@ -1,4 +1,4 @@
-# ta06-RuizEric-OrtegaAritz-MartinezErnesto-MendezJavier-ASIXc1B
+![image](https://github.com/user-attachments/assets/3cde40f5-64c5-4bc6-ba43-7ebdaa458603)# ta06-RuizEric-OrtegaAritz-MartinezErnesto-MendezJavier-ASIXc1B
 
 
 ## Tasca nº1
@@ -41,7 +41,7 @@ Un cop tinguem aquests filtres seleccionats, li donem a cercar, i descarreguem l
 
 Per organitzar i separar els diferents passos (Revisar capçaleres, Verificar arxius, Netejar dades, documentar) hem creat diferents scripts. **(pas1.py | pas2.py | pas3.py | pas4.py)** per després ajuntar-ho tot en un mateix script **(main.py)**:
 
-## L'script final es el seguent:
+## L'script actual es el seguent:
 
 ![](./assets/img/script1.png)
 
@@ -60,7 +60,26 @@ La darrera part. Organitza les dades de precipitacions per any, analitza els val
 ## Tasca nº3 
 > _Resum de la tasca:_ Generació de resultats (resums estadístics, gràfics i .CSV)
 
-aaaaa
+Per aquesta tasca, hem decidit dividirla entre la web i el codi, degut a que surt millor posar els grafics directament a la web en comptes de al codi per despres posar una foto. El resultat es el seguent:
+
+#### PART de main.py:
+
+[](./assets/img/TASCA3.1.png)
+Procesa els fitxers y suma els valors a les estadístiques generals
+
+[](./assets/img/TASCA3.2.png)
+Aqui acumulem les dades anuals
+
+[](./assets/img/TASCA3.3.png)
+Calcula les estadístiques generals
+
+[](./assets/img/TASCA3.4.png)
+Escriu les estadístiques en l'archiu de resultats
+
+[](./assets/img/TASCA3.5.png)
+Guarda els resultats en resultados.txt y resultados.csv
+
+
 ## Tasca nº4 
 > _Resum de la tasca:_ Creació i publicació de la web
 
