@@ -90,7 +90,8 @@ Guarda els resultats en resultados.txt y resultados.csv
 
 En aquesta ultima part, hem creat el index.html i tot, i dins hem posar un script per que calculi el grafic a partir del csv i el mostri a la web
 
-L'script es el seguent
+L'script es el seguent:
+
 ![](./assets/img/TASCA4.png)
 
 
@@ -100,6 +101,8 @@ L'script es el seguent
 Entre nosaltres hem omplert la taula de reflexio per separat, els resultats son els seguents:
 
 ### ARITZ:
+
+![](./assets/img/TASCA5_ARITZ.png)
 
 ### ANDRES:
 
