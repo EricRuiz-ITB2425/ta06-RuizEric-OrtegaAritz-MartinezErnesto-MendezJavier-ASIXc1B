@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/3cde40f5-64c5-4bc6-ba43-7ebdaa458603)# ta06-RuizEric-OrtegaAritz-MartinezErnesto-MendezJavier-ASIXc1B
+# ta06-RuizEric-OrtegaAritz-MartinezErnesto-MendezJavier-ASIXc1B
 
 
 ## Tasca nº1
