@@ -88,7 +88,12 @@ Guarda els resultats en resultados.txt y resultados.csv
 ## Tasca nº4 
 > _Resum de la tasca:_ Creació i publicació de la web
 
-aaaaa
+En aquesta ultima part, hem creat el index.html i tot, i dins hem posar un script per que calculi el grafic a partir del csv i el mostri a la web
+
+L'script es el seguent
+![](./assets/img/TASCA4.png)
+
+
 ## Tasca nº5 
 > _Resum de la tasca:_ Reflexió sobre el treball dels nostres companys
 
