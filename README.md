@@ -65,18 +65,23 @@ Per aquesta tasca, hem decidit dividirla entre la web i el codi, degut a que sur
 ### PART de main.py:
 
 ![](./assets/img/TASCA3.1.png)
+
 Procesa els fitxers y suma els valors a les estadístiques generals
 
 ![](./assets/img/TASCA3.2.png)
+
 Aqui acumulem les dades anuals
 
 ![](./assets/img/TASCA3.3.png)
+
 Calcula les estadístiques generals
 
 ![](./assets/img/TASCA3.4.png)
+
 Escriu les estadístiques en l'archiu de resultats
 
 ![](./assets/img/TASCA3.5.png)
+
 Guarda els resultats en resultados.txt y resultados.csv
 
 
