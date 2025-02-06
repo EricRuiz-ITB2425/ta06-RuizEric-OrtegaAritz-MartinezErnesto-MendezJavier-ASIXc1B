@@ -107,7 +107,7 @@ Entre nosaltres hem omplert la taula de reflexio per separat, els resultats son 
 
 ![](./assets/img/TASCA5_ARITZ.png)
 
-### ANDRES:
+### JAVIER:
 
 ![](./assets/img/TASCA5_JAVIER.png)
 
